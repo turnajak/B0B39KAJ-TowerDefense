@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tower Defense</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="main-menu">
+    <h1>Tower Defense</h1>
+
+    <form id="settings-form">
+      <div>
+        <label for="player-name">Jméno hráče:</label>
+        <input id="player-name" type="text" placeholder="Zadej jméno" required autofocus />
+      </div>
+      <button type="submit">Potvrdit nastavení</button>
+    </form>
+
+    <nav>
+      <button id="start-game-btn">Zahájit hru</button>
+      <button id="help-btn">Nápověda</button>
+      <button id="difficulty-btn">Obtížnost: Normální</button>
+      <button id="sound-btn">Zvuk: Zapnuto</button>
+    </nav>
+  </div>
+
+  <!-- hidden nez zacne hra -->
+  <div id="game-container" class="hidden">
+    <header>
+      <section id="status-bar">
+        <div id="health-container">
+          <span>Životy: </span><span id="health-count">20</span>
+        </div>
+        <div id="gold-container">
+          <span>Zlato: </span><span id="gold-count">50</span>
+        </div>
+        <div id="wave-container">
+          <span>Vlna: </span><span id="wave-count">0</span>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <div id="game-area-wrapper">
+        <section id="game-area" aria-label="Hrací plocha"></section>
+      </div>
+      <aside id="controls">
+        <div id="tower-palette">
+          <div class="tower-icon" draggable="true" data-tower-type="basic">
+            🛡️ Věž
+          </div>
+        </div>
+
+        <button id="start-wave-btn">Spustit vlnu</button>
+        <button id="sell-tower-btn">Prodat věž</button>
+        <button id="save-state-btn">Uložit stav</button>
+        <button id="load-state-btn">Načíst stav</button>
+        <button id="back-to-menu-btn">Zpět do menu</button>
+      </aside>
+    </main>
+  </div>
+
+  <audio id="sound-shoot" src="assets/sounds/shoot.wav" preload="auto"></audio>
+  <audio id="sound-enemy-death" src="assets/sounds/enemy-death.wav" preload="auto"></audio>
+  <audio id="sound-enemy-reach-end" src="assets/sounds/enemy-reach-end.wav" preload="auto"></audio>
+
+  <script src="js/utils/constants.js"></script>
+  <script src="js/utils/helpers.js"></script>
+  <script src="js/config/config.js"></script>
+
+  <script src="js/app/game.js"></script>
+  <script src="js/app/tower.js"></script>
+  <script src="js/app/enemy.js"></script>
+  <script src="js/app/wave.js"></script>
+  <script src="js/app/main.js"></script>
+
+  <script src="js/ui/ui.js"></script>
+  <script src="js/ui/dragdrop.js"></script>
+
+  <script src="js/storage/storage.js"></script>
+</body>
+</html>
